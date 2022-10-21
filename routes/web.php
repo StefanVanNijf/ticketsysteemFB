@@ -14,7 +14,10 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get("/home",[PagesController::class, "viewHome"]);
+Route::get("/home",[PagesController::class, "viewHome"])->name('home');
+
+Route::get('/contact', [PagesController::class, "viewContact"])->name('contact');
+Route::get('/about', [PagesController::class, "viewAbout"])->name('about');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
