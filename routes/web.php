@@ -14,10 +14,22 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get("/home",[PagesController::class, "viewHome"])->name('home');
+Route::get("/",[PagesController::class, "viewHome"])->name('home');
 
-Route::get('/contact', [PagesController::class, "viewContact"])->name('contact');
-Route::get('/about', [PagesController::class, "viewAbout"])->name('about');
+Route::get("/home",[PagesController::class, "viewHome"])->name
+('home');
+Route::get('/contact', [PagesController::class, "viewContact"])->name
+('contact');
+Route::get('/about', [PagesController::class, "viewAbout"])->name
+('about');
+
+
+Route::get('/admin/create-events',[\App\Http\Controllers\EventsController::class, 'createEvent'])->name
+('create-events')->middleware('auth');
+
+Route::get('/admin/create-ticket',[\App\Http\Controllers\EventsController::class, 'createTicket'])->name
+('create-ticket')->middleware('auth');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
