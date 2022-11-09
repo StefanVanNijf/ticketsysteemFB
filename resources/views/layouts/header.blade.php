@@ -1,10 +1,3 @@
-{{-- <div class="header">
-    <div class="logo-container">
-        <a href="#">
-            <img src="" alt="company logo">
-        </a>
-    </div>
-</div> --}}
 
 <nav class="navbar bg-light navbar-expand-md bg-faded justify-content-center">
     <div class="container">
@@ -14,6 +7,20 @@
         </button>
         <div class="navbar-collapse collapse w-100" id="collapsingNavbar">
             <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+                @if(Auth::user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('create-tickets') }}">Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('create-events') }}">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button class="nav-link" type="submit">Logout</button>
+                        </form>
+                    </li>
+                @else
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
@@ -23,14 +30,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                 </li>
-                @if(Auth::user())
-                    <li class="nav-item">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button class="nav-link" type="submit">Logout</button>
-                        </form>
-                    </li>
-                @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">Login</a>
                 </li>
