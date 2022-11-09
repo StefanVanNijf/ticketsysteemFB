@@ -12,24 +12,23 @@ class TicketsController extends Controller
 
     public function store(Request $request)
     {
-//        //validate input
-//        $request->validate([
-//            'brands' => 'required',
-//            'manual_name' => 'required',
-//            'link' => 'required'
-//        ]);
-//
-//        //create a new manual in db
-//
-//        $manualName = new Event();
-//        $manualName->name = $request->manual_name;
-//        $manualName->brand_id = $request->brands;
-//        $manualName->save();
-//
-//
-//        //redirect user and send message
-//
-//        return redirect('/adminpage')->with('Gelukt!','Manual succesvol toegevoegd');
+        //validate input
+        $request->validate([
+            'name' => 'required',
+            'price' => 'required',
+        ]);
+
+        //create a new manual in db
+
+        $ticket = new tickets();
+        $ticket->name = $request->name;
+        $ticket->price = $request->price;
+        $ticket->save();
+
+
+        //redirect user and send message
+
+        return redirect('/create-tickets')->with('Gelukt!','ticket succesvol toegevoegd');
 
     }
 }
