@@ -9,10 +9,10 @@
             <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
                 @if(Auth::user())
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('create-tickets') }}">Tickets</a>
+                        <a class="nav-link" href="{{ route('create-events') }}">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('create-events') }}">Events</a>
+                        <a class="nav-link" href="{{ route('event.index') }}">Eventlist</a>
                     </li>
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">
@@ -24,6 +24,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('showEvents') }}">Eventementen</a>
+                    </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">Over Ons</a>
                 </li>

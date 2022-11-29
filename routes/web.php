@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\EventsController;
 
 /*
@@ -25,14 +24,11 @@ Route::get('/contact', [PagesController::class, "viewContact"])->name
 Route::get('/about', [PagesController::class, "viewAbout"])->name
 ('about');
 
+Route::get('/show-events',[\App\Http\Controllers\EventsController::class, 'viewEvents'])->name('showEvents');
 
 Route::get('/admin/create-events',[\App\Http\Controllers\EventsController::class, 'createEvent'])->name
 ('create-events')->middleware('auth');
 Route::resource('event', \App\Http\Controllers\EventsController::class);
-
-Route::get('/admin/create-tickets',[\App\Http\Controllers\TicketsController::class, 'createTicket'])->name
-('create-tickets')->middleware('auth');
-Route::resource('ticket', \App\Http\Controllers\TicketsController::class);
 
 
 Route::get('/dashboard', function () {
