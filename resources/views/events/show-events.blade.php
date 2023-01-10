@@ -1,8 +1,8 @@
 @extends('layouts.base')
 @section('content')
 <div class="row">
-    <div class="col-lg-12">
-        <div class="pull-left">
+    <div class="col">
+        <div class="float-right">
             <h2>Evenementen</h2>
         </div>
     </div>

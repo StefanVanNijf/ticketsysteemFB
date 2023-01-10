@@ -55,12 +55,28 @@ class EventsController extends Controller
 
     }
 
-    public function show(){
-        //
+    public function show(Events $event){
+        return view('events.show', compact('event'));
     }
 
-    public function edit(){
-        //
+    public function edit(Events $event){
+        return view('events.edit', compact('event'));
+    }
+    public function update(Request $request, Events $event){
+        $request->validate([
+            'name' => 'required',
+            'desc' => 'required',
+            'price' => 'required',
+            'city' => 'required',
+            'adres' => 'required',
+            'amount' => 'required',
+            'dateStart' => 'required',
+            'dateEnd' => 'required'
+        ]);
+
+        $event->update($request->all());
+
+        return redirect('/admin/index')->with('Gelukt!','Event succesvol aangepast!');
     }
 
     public function destroy(){

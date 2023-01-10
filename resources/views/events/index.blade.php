@@ -1,16 +1,14 @@
 @extends('layouts.base')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="pull-left">
-                <h2>Evenementen lijst</h2>
-            </div>
-        </div>
-    </div>
 
     <div class="container">
-        <div class="pull-right">
-            <a class="btn btn-success" href="{{route('create-events')}}">Nieuw event toevoegen</a>
+        <div class="d-flex justify-content-between">
+            <div class="p-2">
+                <h2>Evenementen lijst</h2>
+            </div>
+            <div class="p-2">
+                <a class="btn btn-success" href="{{route('create-events')}}">Nieuw event toevoegen</a>
+            </div>
         </div>
         <table class="table table-bordered">
             <tr>
