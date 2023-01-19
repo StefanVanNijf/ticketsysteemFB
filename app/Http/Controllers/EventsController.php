@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class EventsController extends Controller
 {
+    function __construct(){
+        $this->middleware('admin')->except(['viewEvents', 'show']);
+    }
+
+
     public function createEvent(){
         return view('events.create-events');
     }
@@ -74,13 +79,24 @@ class EventsController extends Controller
             'dateEnd' => 'required'
         ]);
 
-        $event->update($request->all());
+        $event->name = $request->name;
+        $event->description = $request->desc;
+        $event->price = $request->price;
+        $event->city = $request->city;
+        $event->adres = $request->adres;
+        $event->amount_of_tickets = $request->amount;
+        $event->date_start = $request->dateStart;
+        $event->date_end = $request->dateEnd;
+        $event->save();
 
-        return redirect('/admin/index')->with('Gelukt!','Event succesvol aangepast!');
+        return redirect()->route('event.index')->with('Gelukt!','Event succesvol aangepast!');
     }
 
-    public function destroy(){
-        //
+    public function destroy(Events $event){
+        //delete the event
+        $event->delete();
+        //redirect user and display succes message
+        return redirect()->route('event.index')->with('Gelukt!','Event succesvol verwijderd!');
     }
 
 }

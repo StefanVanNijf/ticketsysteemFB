@@ -7,7 +7,7 @@
                 <h2>Details</h2>
             </div>
             <div class="p-2">
-                <a class="btn btn-primary" href="{{route('event.index')}}">Terug</a>
+                <a class="btn btn-primary" href="{{url()->previous()}}">Terug</a>
             </div>
         </div>
     </div>

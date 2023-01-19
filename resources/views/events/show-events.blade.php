@@ -20,6 +20,7 @@
             <tr>
                 <td>{{ $event->name }}</td>
                 <td>{{ $event->description }}</td>
+                <td><a  class="btn btn-info" href="{{route('event.show', $event->id)}}">Show</a></td>
             </tr>
         @endforeach
     </table>
